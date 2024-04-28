@@ -1,0 +1,10 @@
+# image: node:current-bullseye-slim
+
+# stage:
+#  - setup
+#  - test
+
+#  install:
+#   stage: setup
+#   script:
+#     - npm ci
