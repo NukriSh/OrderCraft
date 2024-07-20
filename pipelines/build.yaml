@@ -1,0 +1,13 @@
+steps:
+ - name: 'gcr.io/cloud-builders/docker'
+ - args: ['build', '-t', 'gcr.io/${_FIREBASE_PROJECT_ID}/firebase','.dockerfiles/firebase']
+ - name: 'node:20.15'
+   entrypoing: 'npm'
+   args: ['run','build']
+ - name: 'gcr.io/${_FIREBASE_PROJECT_ID}/firebase'
+   args: ['use', '${_FIREBASE_PROJECT_ID}','--token', '${_FIREBASE_TOKEN}']
+ - name: 'gcr.io/$${_FIREBASE_PROJECT_ID}'/firebase'
+   args: ['raget:apply', 'hosting', 'ordercraft-n','ordercraft-n','--token', '${_FIREBASE_TOKEN}']
+ - name: 'gcr.io/$${_FIREBASE_PROJECT_ID}/firebase'
+   args: ['deploy', '--token', '${_FIREBASE_TOKEN}', '--only', '--hosting:ordercraft-n']
+timeout:1200s
